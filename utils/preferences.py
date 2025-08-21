@@ -70,3 +70,5 @@ def get_preferences():
         "tasa_isr" : get_float("Tasa de isr aplicable por ingreso (%): ")
     }
 
+    return preferences
+
