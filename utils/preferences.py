@@ -68,15 +68,15 @@ def get_preferences():
     """Stores user preferences securely in a dictionary"""
 
     preferences = {
-        "inflacion_a_USA" : get_float("Inflación anual a considerar para USA (%): "),
-        "inflacion_a_MX" : get_float("Inflación anuala a considerar para México (%): "),
-        "rendimiento_anual" : get_float("Rendimiento anual esperado (%): "),
-        "rendimiento_dividendos" : get_float("Rendimiento por dividendos (%): "),
-        "años_inversion" : get_int("Años totales de inverisón (sin decimales): "),
-        "inversion_inicial": get_float("Inversión inicial (MXN$): "),
-        "aportacion_mensual" : get_float("Aportación mensual (MXN$): "),
-        "tasa_isr" : get_float("Tasa de isr aplicable por ingreso (%): "),
-        "costo_broker" : get_float("Costo por transacción en casa de bolsa (%): ")
+        "inflation_USA" : get_float("Inflación anual a considerar para USA (%): "),
+        "inflation_MX" : get_float("Inflación anuala a considerar para México (%): "),
+        "anual_nominal_return" : get_float("Rendimiento anual esperado (%): "),
+        "anual_dividend_yield" : get_float("Rendimiento por dividendos (%): "),
+        "investment_years" : get_int("Años totales de inverisón (sin decimales): "),
+        "initial_investment": get_float("Inversión inicial (MXN$): "),
+        "monthly_payment" : get_float("Aportación mensual (MXN$): "),
+        "taxes_rate" : get_float("Tasa de isr aplicable por ingreso (%): "),
+        "brokerage" : get_float("Costo por transacción en casa de bolsa (%): ")
     }
 
     return preferences

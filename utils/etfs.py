@@ -6,12 +6,12 @@ def build_etf(usr_data):
     #            [VOO  , VUAA]
     reinv_coef = [0.606, 0.848]
 
-    etfs = [[],[]]
+    etfs = [{},{}]
     for i in range(2):
-        etfs[i].append(reinv_coef[i])
+        etfs[i]["reinvertion_coeficient"] = reinv_coef[i]
         
-        for value in usr_data:
-            etfs[i].append(value)
+        for k, v in usr_data.items():
+            etfs[i][k]=[v]
 
     return etfs
 

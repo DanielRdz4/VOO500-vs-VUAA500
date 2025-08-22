@@ -4,20 +4,34 @@ import pandas as pd
 def calculate_data(usr_pref):
     """Transforms user preferences data for later calculation"""
 
-    usr_data = []
-    for values in usr_pref.values():
-        usr_data.append(values)
-        
-    capital_gains = (usr_data[2] / 100) - (usr_data[3] / 100)
-    real_return = ( (1 + capital_gains) / (1 + usr_data[0] / 100) ) - 1
+    anual_return =usr_pref["anual_nominal_return"]
+    dividend_yield = usr_pref["anual_dividend_yield"]
+    inflation_USA = usr_pref["inflation_USA"]
+    taxes = usr_pref["taxes_rate"]
+    broker = usr_pref["brokerage"]
 
+    capital_gains = (anual_return) / 100 - (dividend_yield / 100)
+    real_return = ( (1 + capital_gains) / (1 + inflation_USA / 100) ) - 1
+    taxes_rate = taxes / 100
+    brokerage = broker / 100
 
     # m_* --> monthly_*
     m_real_return = real_return / 12
-    usr_data.append(m_real_return)
+
     # tm_* --> trimonthly_*
-    tm_div_yield = usr_data[3] / 4  #Dividends distributed trimonthly, 4 trimesters in a year
-    usr_data.append(tm_div_yield)
+    tm_div_yield = dividend_yield / 4  #Dividends distributed trimonthly
+
+    #Data needed for calculations
+    usr_data={
+        "m_real_return" : m_real_return,
+        "tm_div_yield" : tm_div_yield,
+        "years" : usr_pref["investment_years"],
+        "inicial_investment" : usr_pref["initial_investment"],
+        "monthly_payment" : usr_pref["monthly_payment"],
+        "taxes_rate" : taxes_rate,
+        "brokerage" : brokerage
+    } 
+
 
     return usr_data
 
