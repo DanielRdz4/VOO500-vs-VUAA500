@@ -1,0 +1,19 @@
+# Archivos de VS Code
+.vscode/
+.history/
+*.code-workspace
+
+# Dependencias de Node.js
+node_modules/
+
+# Dependencias de Python
+__pycache__/
+*.pyc
+.env
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Datos locales
+*.json
