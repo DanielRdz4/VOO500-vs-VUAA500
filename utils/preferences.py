@@ -6,7 +6,7 @@ import os
 
 FILENAME = "preferences.json"
 cwd = Path(__file__).resolve()
-BASE_DIR = cwd.parent
+BASE_DIR = cwd.parent.parent
 DATA_DIR = BASE_DIR / "data" 
 DATA_FILE = DATA_DIR / FILENAME
 
