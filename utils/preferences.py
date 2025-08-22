@@ -16,6 +16,14 @@ def seek_preferences():
     DATA_DIR.mkdir(parents=True,exist_ok=True)
 
     if DATA_FILE.exists():
+
+        print("\nPreferencias actuales: \n")
+        with open(DATA_FILE,"r") as f:
+            user_preferences = json.load(f)
+            for k, v in user_preferences.items():
+                print(f"{k} = {v}")
+            print("\n")
+
         update = input("Desea actualizar las preferencias (Y/N): ").upper().rstrip()
 
         if update == "Y":
@@ -67,7 +75,8 @@ def get_preferences():
         "años_inversion" : get_int("Años totales de inverisón (sin decimales): "),
         "inversion_inicial": get_float("Inversión inicial (MXN$): "),
         "aportacion_mensual" : get_float("Aportación mensual (MXN$): "),
-        "tasa_isr" : get_float("Tasa de isr aplicable por ingreso (%): ")
+        "tasa_isr" : get_float("Tasa de isr aplicable por ingreso (%): "),
+        "costo_broker" : get_float("Costo por transacción en casa de bolsa (%): ")
     }
 
     return preferences
