@@ -16,4 +16,4 @@ __pycache__/
 Thumbs.db
 
 # Datos locales
-*.json
+data/*.json
