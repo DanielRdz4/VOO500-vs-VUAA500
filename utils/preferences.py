@@ -69,14 +69,14 @@ def get_preferences():
 
     preferences = {
         "inflation_USA" : get_float("Inflación anual a considerar para USA (%): "),
-        "inflation_MX" : get_float("Inflación anuala a considerar para México (%): "),
+        "inflation_MX" : get_float("Inflación anual a considerar para México (%): "),
         "anual_nominal_return" : get_float("Rendimiento anual esperado (%): "),
         "anual_dividend_yield" : get_float("Rendimiento por dividendos (%): "),
         "investment_years" : get_int("Años totales de inverisón (sin decimales): "),
         "initial_investment": get_float("Inversión inicial (MXN$): "),
+        "gross_monthly_income": get_float("Ingreso bruto mensual (MXN$): "),
         "monthly_payment" : get_float("Aportación mensual (MXN$): "),
-        "taxes_rate" : get_float("Tasa de isr aplicable por ingreso (%): "),
-        "brokerage" : get_float("Costo por transacción en casa de bolsa (%): ")
+        "brokerage" : get_float("Costo por transacción en casa de bolsa (%): "),
     }
 
     return preferences
