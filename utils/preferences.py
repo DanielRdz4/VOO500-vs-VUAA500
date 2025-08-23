@@ -68,20 +68,31 @@ def get_int(mensaje):
         except ValueError:
             print("Valor inválido, vuelva a intentarlo")
 
+def get_number_cero(mensaje):
+
+    """Store variable that can be 0"""
+
+    while True:
+        try:
+            valor = float(input(mensaje))
+            return valor
+        except ValueError:
+            print("Valor inválido, vuelva a intentarlo")
+
 
 
 def get_preferences():
     """Stores user preferences securely in a dictionary"""
 
     preferences = {
-        "inflation_USA" : get_float("Inflación anual a considerar para USA (%): "),
-        "inflation_MX" : get_float("Inflación anual a considerar para México (%): "),
-        "anual_nominal_return" : get_float("Rendimiento anual esperado (%): "),
+        "inflation_USA" : get_number_cero("Inflación anual a considerar para USA (%): "),
+        "inflation_MX" : get_number_cero("Inflación anual a considerar para México (%): "),
+        "anual_nominal_return" : get_number_cero("Rendimiento anual esperado (%): "),
         "anual_dividend_yield" : get_float("Rendimiento por dividendos (%): "),
         "investment_years" : get_int("Años totales de inverisón (sin decimales): "),
-        "initial_investment": get_float("Inversión inicial (MXN$): "),
+        "initial_investment": get_number_cero("Inversión inicial (MXN$): "),
         "gross_monthly_income": get_float("Ingreso bruto mensual (MXN$): "),
-        "monthly_payment" : get_float("Aportación mensual (MXN$): "),
+        "monthly_payment" : get_number_cero("Aportación mensual (MXN$): "),
         "brokerage" : get_float("Costo por transacción en casa de bolsa (%): "),
     }
 
