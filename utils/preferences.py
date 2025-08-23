@@ -48,6 +48,9 @@ def get_float(mensaje):
     while True:
         try:
             valor = float(input(mensaje))
+            if valor <= 0:
+                print("El valor tiene que ser mayor a 0")
+                continue
             return valor
         except ValueError:
             print("Valor inválido, vuelva a intentarlo")
@@ -58,6 +61,9 @@ def get_int(mensaje):
     while True:
         try:
             valor = int(input(mensaje))
+            if valor <= 0:
+                print("El valor tiene que ser mayor a 0")
+                continue
             return valor
         except ValueError:
             print("Valor inválido, vuelva a intentarlo")
