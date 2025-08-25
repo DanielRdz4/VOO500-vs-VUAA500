@@ -1,4 +1,5 @@
 
+
 isr_table = [
 #   [inf limit],   [sup limit],   [fixed amount], [% above fixed amount]
     [0.01,         578.52,        0.00,           1.92],
@@ -34,3 +35,19 @@ def get_isr(monthly_income):
             tax_rate = taxes / monthly_income
             return tax_rate
         
+def reinvertion_coeficient(usr_data):
+    """Calculates the dividend reinvertion coeficient for VOO500"""
+    
+    irs_tax_rate = 0.1                      #Tax rate with w-8ben form 
+    dividend_tax_rate = 0.1                 #Efective tax for dividends in México
+    sat_tax_rate = usr_data["taxes_rate"]   #Tax rate for users monthly income
+    ireland_tax_rate = 0.15                 #Tax rate in acumulating etf
+    brokerage = usr_data["brokerage"]       #Broker's cost per transaction
+
+    reinv_coef_voo = (1-irs_tax_rate)*(1-dividend_tax_rate)*(1-sat_tax_rate)*(1-brokerage)
+    reinv_coef_vuaa = (1-ireland_tax_rate)*(1-brokerage)
+
+    reinv_coef_etfs = [reinv_coef_voo, reinv_coef_vuaa]
+
+    return reinv_coef_etfs
+ 

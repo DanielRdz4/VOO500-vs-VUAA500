@@ -1,6 +1,7 @@
 #Dependecies
 from utils import taxes
 
+
 def calculate_data(usr_pref):
     """Transforms user preferences data for later calculation"""
 
@@ -30,7 +31,4 @@ def calculate_data(usr_pref):
         "brokerage" : brokerage
     } 
 
-
     return usr_data
-
-

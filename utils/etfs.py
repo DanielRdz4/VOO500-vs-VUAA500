@@ -1,10 +1,11 @@
+from utils import investment
+from utils import taxes
 
 def build_etf(usr_data):
     """Creates the specific dictionary for VOO500 and VUAA500"""
 
     #Dividend's Reinvestment Coeficient
-    #            [VOO  , VUAA]
-    reinv_coef = [0.606, 0.848]
+    reinv_coef = taxes.reinvertion_coeficient(usr_data)
 
     etfs = [{},{}]
     for i in range(2):
@@ -14,4 +15,15 @@ def build_etf(usr_data):
             etfs[i][k]=[v]
 
     return etfs
+
+class Etf:
+    """Creates instance of one specific etf"""
+
+    def __init__(self, **kwargs):
+        """Creates all of the necesary arguments for the class"""
+
+        for k, v in kwargs.items():
+            setattr(self, k, v)
+
+
 
