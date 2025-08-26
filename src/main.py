@@ -3,11 +3,13 @@ from utils import preferences as pref
 from utils import etfs
 from utils import investment
 
+
 #Main script
 usr_pref = pref.seek_preferences()
 usr_data = investment.calculate_data(usr_pref)
 etfs_data = etfs.build_etf(usr_data)
-print(etfs_data)
+proyection = [etfs.Etf(**data) for data in etfs_data]
+
 
 
 

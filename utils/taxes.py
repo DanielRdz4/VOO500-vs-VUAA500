@@ -30,7 +30,6 @@ def get_isr(monthly_income):
         if monthly_income > sup_lim:
             continue
         else:
-            print(f"{sup_lim}, {inf_lim}, {fixed_amount}, {above}")
             taxes = fixed_amount + (monthly_income - inf_lim) * (above / 100)
             tax_rate = taxes / monthly_income
             return tax_rate
