@@ -22,6 +22,7 @@ def build_etf(usr_data):
 
     return etfs
 
+
 class Etf:
     """Creates instance of one specific etf"""
 
@@ -32,13 +33,36 @@ class Etf:
             setattr(self, k, v)
         print(self.__dict__)
 
+    def calculate_dividends(self):
+        """Calculates the dividend due for a given trimester"""
+    
+    def yearly_growth(self):
+        """Calculates 1 year of growth"""
+
+        for month in range(1,13):
+
+            interest = total * self.m_real_return
+            if month % 3 == 0:
+                dividend = self.calculate_dividends(total)
+            else:
+                dividend = 0
+
+            total += self.monthly_payment + interest  + dividend
+        
+        return total
+
     def calculate_investment(self):
         """Calculates the total investment value after set number of years"""
 
+        total = self.initial_investment
+        for year in range(self.years):
+            total = self.yearly_growth(total)
+        
+
 
 #ETF Class attributes
-    #'reinvertion_coeficient', 'm_real_return', 'tm_div_yield', 'years'
-    # 'inicial_investment', 'monthly_payment', 'taxes_rate', 'brokerage'
+    #'reinvertion_coeficient','management_cost' , 'm_real_return', 'tm_div_yield', 'years', 'months'
+    # 'initial_investment', 'monthly_payment', 'taxes_rate', 'brokerage'
 
 
 
