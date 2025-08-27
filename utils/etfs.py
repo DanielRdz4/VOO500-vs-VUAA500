@@ -18,7 +18,7 @@ def build_etf(usr_data):
         etfs[i]["management_cost"] = management_cost[i]
         
         for k, v in usr_data.items():
-            etfs[i][k]=[v]
+            etfs[i][k] = v
 
     return etfs
 
@@ -31,12 +31,16 @@ class Etf:
 
         for k, v in kwargs.items():
             setattr(self, k, v)
-        print(self.__dict__)
 
-    def calculate_dividends(self):
+    def calculate_dividends(self, total):
         """Calculates the dividend due for a given trimester"""
+
+        dividend = total * self.tm_div_yield
+        reinv_dividend = dividend * self.reinvertion_coeficient
+        
+        return reinv_dividend
     
-    def yearly_growth(self):
+    def yearly_growth(self,total):
         """Calculates 1 year of growth"""
 
         for month in range(1,13):
@@ -47,7 +51,7 @@ class Etf:
             else:
                 dividend = 0
 
-            total += self.monthly_payment + interest  + dividend
+            total += self.monthly_payment + interest + dividend
         
         return total
 
@@ -55,9 +59,13 @@ class Etf:
         """Calculates the total investment value after set number of years"""
 
         total = self.initial_investment
+        y_axis = []
         for year in range(self.years):
             total = self.yearly_growth(total)
-        
+            self.monthly_payment *= 1 + self.inflation_MX
+            y_axis.append(total)
+
+        return y_axis
 
 
 #ETF Class attributes

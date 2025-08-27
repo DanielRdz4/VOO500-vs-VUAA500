@@ -89,7 +89,7 @@ def get_preferences():
         "inflation_MX" : get_number_cero("Inflación anual a considerar para México (%): "),
         "anual_nominal_return" : get_number_cero("Rendimiento anual esperado (%): "),
         "anual_dividend_yield" : get_float("Rendimiento por dividendos (%): "),
-        "investment_years" : get_int("Años totales de inverisón (sin decimales): "),
+        "years" : get_int("Años totales de inverisón (sin decimales): "),
         "initial_investment": get_number_cero("Inversión inicial (MXN$): "),
         "gross_monthly_income": get_float("Ingreso bruto mensual (MXN$): "),
         "monthly_payment" : get_number_cero("Aportación mensual (MXN$): "),

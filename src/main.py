@@ -7,14 +7,12 @@ from utils import investment
 #Main script
 usr_pref = pref.seek_preferences()
 usr_data = investment.calculate_data(usr_pref)
-etfs_data = etfs.build_etf(usr_data)
-proyection = [etfs.Etf(**data) for data in etfs_data]
+etfs_diccs = etfs.build_etf(usr_data)
+etfs_list = [etfs.Etf(**data) for data in etfs_diccs]
 
-
-
-
-
-
+for etf in etfs_list:
+    print(f"\n{etfs.Etf.calculate_investment(etf)}")
+    
 
 ##Pseudocode
     #Get user data
