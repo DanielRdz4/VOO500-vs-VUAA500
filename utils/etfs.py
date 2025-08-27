@@ -43,15 +43,20 @@ class Etf:
     def yearly_growth(self,total):
         """Calculates 1 year of growth"""
 
+        m_real_return = self.m_real_return * (1 - (self.management_cost) / 12)
+
         for month in range(1,13):
 
-            interest = total * self.m_real_return
+            interest = total * m_real_return
+
             if month % 3 == 0:
                 dividend = self.calculate_dividends(total)
             else:
                 dividend = 0
 
-            total += self.monthly_payment + interest + dividend
+            monthly_payment = self.monthly_payment * (1 - self.brokerage)
+            
+            total += monthly_payment + interest + dividend
         
         return total
 
@@ -59,13 +64,14 @@ class Etf:
         """Calculates the total investment value after set number of years"""
 
         total = self.initial_investment
-        y_axis = []
+        total_per_year = []
+
         for year in range(self.years):
             total = self.yearly_growth(total)
-            self.monthly_payment *= 1 + self.inflation_MX
-            y_axis.append(total)
+            self.monthly_payment *= (1 + self.inflation_MX)
+            total_per_year.append(total)
 
-        return y_axis
+        return total_per_year
 
 
 #ETF Class attributes
