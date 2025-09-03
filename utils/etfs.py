@@ -57,6 +57,7 @@ class Etf:
             monthly_payment = self.monthly_payment * (1 - self.brokerage)
             
             total += monthly_payment + interest + dividend
+            
         
         return total
 
